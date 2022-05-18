@@ -19,11 +19,13 @@ public class HitTarget : MonoBehaviour,IDamageable {
 
 	public void OnDamage(float damage)
 	{
-		hp -= damage;
+		if(hp > 0){
+			hp -= damage;
 
-		if(hp <= 0)
-		{
-			animator.SetTrigger("Die");
+			if(hp <= 0)
+			{
+				animator.SetTrigger("Die");
+			}
 		}
 	}
 }
