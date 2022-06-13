@@ -142,7 +142,7 @@ public class Gun : MonoBehaviour
 		}
 
 		//진동구현
-		OpenXRInput.SendHapticImpulse(rightHapticAction, 1f, 0.2f, UnityEngine.InputSystem.XR.XRController.rightHand);
+		//OpenXRInput.SendHapticImpulse(rightHapticAction, 1f, 0.2f, UnityEngine.InputSystem.XR.XRController.rightHand);
 
 		//탄약 1 소모
 		magAmmo--;
