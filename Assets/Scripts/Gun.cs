@@ -1,7 +1,10 @@
-﻿using UnityEngine;
+using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.XR.Interaction.Toolkit;
+using UnityEngine.XR.OpenXR.Input;
+using UnityEngine.InputSystem;
 
 public class Gun : MonoBehaviour
 {
@@ -102,6 +105,8 @@ public class Gun : MonoBehaviour
 			UpdateGunUI();
 		}
 	}
+	
+	[SerializeField] InputActionReference rightHapticAction;
 	// 총을 쏘는 실제 처리 함수
 	private void Shot()
 	{
@@ -135,6 +140,9 @@ public class Gun : MonoBehaviour
 				target.OnDamage(damage);
 			}
 		}
+
+		//진동구현
+		OpenXRInput.SendHapticImpulse(rightHapticAction, 1f, 0.2f, UnityEngine.InputSystem.XR.XRController.rightHand);
 
 		//탄약 1 소모
 		magAmmo--;
